@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>暑假作业-LeetCode | 独者殿堂</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="19年暑假实验室布置的几道LeetCode题目:">
+<meta name="keywords" content="C++,LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="暑假作业-LeetCode">
+<meta property="og:url" content="blog.wcowboy.com/2019/09/14/android-summer-homework/index.html">
+<meta property="og:site_name" content="独者殿堂">
+<meta property="og:description" content="19年暑假实验室布置的几道LeetCode题目:">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/6.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/1.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/7.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/2.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/8.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/3.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/9.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/4.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/10.png">
+<meta property="og:image" content="/2019/09/14/android-summer-homework/5.png">
+<meta property="og:updated_time" content="2019-12-01T13:18:53.876Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="暑假作业-LeetCode">
+<meta name="twitter:description" content="19年暑假实验室布置的几道LeetCode题目:">
+<meta name="twitter:image" content="/2019/09/14/android-summer-homework/6.png">
+  
+    <link rel="alternative" href="/atom.xml" title="独者殿堂" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("IqowBlYiWDfJ1WG4sFYVjQX2-gzGzoHsz", "MlvMU5t9Oq4uFmFvk26EPy0S");</script>
+<script src="/js/Counter.js"></script>
+  
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Wcowboy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">红烛 青灯</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wcowboy" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/1330283323@qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/C51/" style="font-size: 10px;">C51</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/LeetCode/" style="font-size: 10px;">LeetCode</a> <a href="/tags/MathType/" style="font-size: 10px;">MathType</a> <a href="/tags/Tampermonkey/" style="font-size: 10px;">Tampermonkey</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/javaEE/" style="font-size: 10px;">javaEE</a> <a href="/tags/keil4/" style="font-size: 10px;">keil4</a> <a href="/tags/play/" style="font-size: 10px;">play</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/古诗/" style="font-size: 10px;">古诗</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ishero.net/">ishero</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Wcowboy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Wcowboy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">红烛 青灯</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wcowboy" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/1330283323@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-android-summer-homework" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/14/android-summer-homework/" class="article-date">
+  	<time datetime="2019-09-14T04:53:23.000Z" itemprop="datePublished">2019-09-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      暑假作业-LeetCode
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/算法/">算法</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2019/09/14/android-summer-homework/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="暑假作业-LeetCode">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="19年暑假实验室布置的几道LeetCode题目"><a href="#19年暑假实验室布置的几道LeetCode题目" class="headerlink" title="19年暑假实验室布置的几道LeetCode题目:"></a>19年暑假实验室布置的几道LeetCode题目:</h1><a id="more"></a>
+
+<h3 id="824-⼭⽺拉丁⽂"><a href="#824-⼭⽺拉丁⽂" class="headerlink" title="824.  ⼭⽺拉丁⽂"></a>824.  ⼭⽺拉丁⽂</h3><p>题目:<img src="/2019/09/14/android-summer-homework/6.png"></p>
+<p>思路：手动分割字符串，再用vector很好弄的</p>
+<p>运行时间:<img src="/2019/09/14/android-summer-homework/1.png"></p>
+<p>代码：</p>
+<pre class=" language-c++"><code class="language-c++">/*
+ * @Author: wcowboy 
+ * @Date: 2019-09-14 13:19:16 
+ * @Last Modified by:   wcowboy 
+ * @Last Modified time: 2019-09-14 13:19:16 
+ */
+/*
+ * @lc app=leetcode.cn id=824 lang=cpp
+ *
+ * [824] 山羊拉丁文
+ */
+
+class Solution {
+public:
+    string toGoatLatin(string S) {
+        vector<string> sub;
+        vector<int> position = {0};
+        int t = 0;
+        for (int i = 0; i < S.length(); i++){
+            if (S[i] == ' '){
+                t ++ ;
+                position.push_back(i + 1);
+            }
+        }
+
+        position.push_back(S.size());
+
+        for (int i = 0;i < position.size() -1 ;i ++){
+            sub.push_back(S.substr(position[i],position[i + 1] - position[i]));
+        }
+
+
+        for (int i = 0;i < sub.size() - 1;i ++){
+            sub[i].erase(sub[i].size() - 1,1);
+        }
+
+        for (int i = 0;i < sub.size();i ++){
+            if (! isVowel(sub[i][0])){
+                char t = sub[i][0];
+                sub[i].erase(0,1);
+                sub[i] = sub[i] + t;
+            }
+            sub[i] = sub[i] + "ma";
+            for (int j = 0;j <= i ;j ++){
+                sub[i] = sub[i] + "a";
+            }
+        }
+        S.erase(0,S.size());
+        for (int i = 0;i < sub.size() - 1;i++){
+            S = S + sub[i] + " ";
+        }
+        S = S + sub[sub.size() - 1 ];
+        return S;
+    }
+    int isVowel(char c){
+        string s = "aeiouAEIOU";
+        for (int i = 0; i < 10;i ++){
+            if (c == s[i]){
+                return 1;
+            }
+        }
+        return 0; 
+    }
+};
+
+</code></pre>
+<h3 id="1078-Bigram-分词"><a href="#1078-Bigram-分词" class="headerlink" title="1078. Bigram 分词"></a>1078. Bigram 分词</h3><p>题目: <img src="/2019/09/14/android-summer-homework/7.png"></p>
+<p>思路: 也是一个字符串分词的题,分割之后遍历</p>
+<img src="/2019/09/14/android-summer-homework/2.png">
+
+<p>代码：</p>
+<pre class=" language-c++"><code class="language-c++">/*
+ * @Author: wcowboy 
+ * @Date: 2019-09-14 13:20:04 
+ * @Last Modified by:   wcowboy 
+ * @Last Modified time: 2019-09-14 13:20:04 
+ */
+/*
+ * @lc app=leetcode.cn id=1078 lang=cpp
+ *
+ * [1078] Bigram 分词
+ */
+
+class Solution {
+public:
+    vector<string> findOcurrences(string text, string first, string second) {
+        vector<string> result,sub;
+        string temp ;
+        for (int i = 0;i <= text.length();i ++){
+            if (text[i] == ' ' || text[i] == '\0'){
+                sub.push_back(temp);
+                temp = "";
+            }
+            else{
+                temp.push_back(text[i]);
+            }
+        }
+
+        for (int i = 0;i < sub.size() - 2;i ++){
+            if (sub[i].compare(first) == 0){
+                if (sub[i + 1].compare(second) == 0){
+                    result.push_back(sub[i + 2]);
+                }
+            }
+        }
+        return result;
+    }
+};
+
+</code></pre>
+<h3 id="120-三⾓形最⼩路径和"><a href="#120-三⾓形最⼩路径和" class="headerlink" title="120. 三⾓形最⼩路径和"></a>120. 三⾓形最⼩路径和</h3><p>题目: <img src="/2019/09/14/android-summer-homework/8.png"></p>
+<p>递推公式<br>$$<br>f(i,j) = min{f(i-1,j-1),f(i-1),f(j)}+triangle(i,j)<br>$$<br>思路: 按递推公式算就行了每一次更新自身信息，遍历一遍数组就可以了，我觉得用一层循环也可以遍历数组，然后时间复杂度就下降了。</p>
+<p>提交结果:<img src="/2019/09/14/android-summer-homework/3.png"></p>
+<p>代码：</p>
+<pre class=" language-C++"><code class="language-C++">/*
+ * @Author: wcowboy 
+ * @Date: 2019-09-14 13:20:26 
+ * @Last Modified by:   wcowboy 
+ * @Last Modified time: 2019-09-14 13:20:26 
+ */
+/*
+ * @lc app=leetcode.cn id=120 lang=cpp
+ *
+ * [120] 三角形最小路径和
+ */
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {   
+        int t;
+
+        if (triangle.size() == 0){
+            return 0;
+        }
+        if (triangle.size() == 1){
+            return triangle[0][0];
+        }
+
+        for (int i = 1;i < triangle.size();i ++){
+            for (int j = 0;j < triangle[i].size();j ++){
+                if (j == 0){
+                    triangle[i][j] = triangle[i - 1][j] + triangle[i][j];
+                }
+                else if (j == i ){
+                    triangle[i][j] = triangle[i - 1][j - 1] + triangle[i][j];
+                }
+                else {
+                    int min =  triangle[i - 1][j - 1] < triangle[i - 1][j] ? triangle[i - 1][j - 1] : triangle[i - 1][j] ;
+                    triangle[i][j] = min + triangle[i][j];
+                }
+            }
+        }
+        t = triangle[triangle.size() - 1][0];
+        for (int i = 0;i < triangle.size();i ++){
+                if (t > triangle[triangle.size() - 1][i]){
+                    t = triangle[triangle.size() - 1][i];
+                }
+        }
+        return t;
+    }
+};
+
+</code></pre>
+<h3 id="121-872-叶⼦相似的树"><a href="#121-872-叶⼦相似的树" class="headerlink" title="121. 872. 叶⼦相似的树"></a>121. 872. 叶⼦相似的树</h3><p>题目: <img src="/2019/09/14/android-summer-homework/9.png"></p>
+<p>思路: 这个，暴力至上，强行遍历二叉树，所以。。。内存开销大，还是用的递归就更那啥了，凑合着能用就行了233</p>
+<p>提交结果:<img src="/2019/09/14/android-summer-homework/4.png"></p>
+<p>代码:</p>
+<pre class=" language-c++"><code class="language-c++">/*
+ * @Author: wcowboy 
+ * @Date: 2019-09-14 13:20:42 
+ * @Last Modified by:   wcowboy 
+ * @Last Modified time: 2019-09-14 13:20:42 
+ */
+/*
+ * @lc app=leetcode.cn id=872 lang=cpp
+ *
+ * [872] 叶子相似的树
+ */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool leafSimilar(TreeNode* root1, TreeNode* root2) {
+        vector<int> a,b;
+        a = getArray(a, root1);
+        b = getArray(b, root2);
+        if(a.size() != b.size()) {
+            return false;
+        } else {
+            for(int i = 0; i < a.size(); i++) {
+                if(a[i] != b[i]) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    vector<int> getArray(vector<int>& v, TreeNode* root) {
+        if(root->left == NULL && root->right == NULL) {
+            v.push_back(root->val);
+        }
+        if(root->left != NULL) {
+            getArray(v, root->left);
+        }
+        if(root->right != NULL) {
+            getArray(v, root->right);
+        }
+        return v;
+    }
+};
+
+</code></pre>
+<h3 id="863-⼆叉树中所有距离为-K-的结点"><a href="#863-⼆叉树中所有距离为-K-的结点" class="headerlink" title="863. ⼆叉树中所有距离为 K 的结点"></a>863. ⼆叉树中所有距离为 K 的结点</h3><p>题目: <img src="/2019/09/14/android-summer-homework/10.png"></p>
+<p>思路：用map建立子结点和父结点的键值对，这样就可以从底向上访问二叉树了。然后再去查距离就行了</p>
+<p>提交结果:<img src="/2019/09/14/android-summer-homework/5.png"></p>
+<p>代码：</p>
+<pre class=" language-c++"><code class="language-c++">/*
+ * @lc app=leetcode.cn id=863 lang=cpp
+ *
+ * [863] 二叉树中所有距离为 K 的结点
+ */
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution
+{
+public:
+    map<TreeNode *, TreeNode *> par;
+
+    //建立子-父亲结点键值对
+    void findparent(TreeNode *root)
+    {
+        if (!root)
+            return;
+        if (root->left)
+        {
+            par[root->left] = root;
+            findparent(root->left);
+        }
+        if (root->right)
+        {
+            par[root->right] = root;
+            findparent(root->right);
+        }
+    }
+    void dfs(TreeNode *root, int k, set<TreeNode *> &visited, vector<int> &res)
+    {
+        if (visited.find(root) != visited.end())
+            return;
+        visited.insert(root);
+        if (k == 0)
+        {
+            res.push_back(root->val);
+            return;
+        }
+        if (root->left)
+            dfs(root->left, k - 1, visited, res);
+        if (root->right)
+            dfs(root->right, k - 1, visited, res);
+        TreeNode *p = par[root];
+        if (p)
+            dfs(p, k - 1, visited, res);
+    }
+    vector<int> distanceK(TreeNode *root, TreeNode *target, int K)
+    {
+        if (!root)
+            return {};
+        findparent(root);
+        vector<int> res;
+        set<TreeNode *> visited;
+        dfs(target, K, visited, res);
+        return res;
+    }
+};
+
+</code></pre>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/11/django-day01-di-yi-ge-ying-yong/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Django-day01 第一个应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/03/javaee-xue-xi-01-chu-shi-play/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javaEE学习01-初识Play</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="android-summer-homework" data-title="暑假作业-LeetCode" data-url="blog.wcowboy.com/2019/09/14/android-summer-homework/"  data-images="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg" data-content="暑假作业-LeetCode">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2019 Wcowboy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>

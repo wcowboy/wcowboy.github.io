@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>51单片机入门 | 独者殿堂</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="keil4安装及点亮第一个LED">
+<meta name="keywords" content="C51,keil4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="51单片机入门">
+<meta property="og:url" content="blog.wcowboy.com/2019/03/02/keil4/index.html">
+<meta property="og:site_name" content="独者殿堂">
+<meta property="og:description" content="keil4安装及点亮第一个LED">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p21.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p22.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p23.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p24.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p25.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p28.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p29.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p210.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p31.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p32.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p41.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p42.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p43.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p44.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p45.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p46.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p47.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p48.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p49.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p410.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p411.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p421.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p422.png">
+<meta property="og:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p424.png">
+<meta property="og:updated_time" content="2019-12-02T07:18:00.255Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="51单片机入门">
+<meta name="twitter:description" content="keil4安装及点亮第一个LED">
+<meta name="twitter:image" content="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p21.png">
+  
+    <link rel="alternative" href="/atom.xml" title="独者殿堂" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+      <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("IqowBlYiWDfJ1WG4sFYVjQX2-gzGzoHsz", "MlvMU5t9Oq4uFmFvk26EPy0S");</script>
+<script src="/js/Counter.js"></script>
+  
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head></html>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Wcowboy</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">红烛 青灯</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wcowboy" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/1330283323@qq.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/C51/" style="font-size: 10px;">C51</a> <a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a> <a href="/tags/Django/" style="font-size: 10px;">Django</a> <a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/LeetCode/" style="font-size: 10px;">LeetCode</a> <a href="/tags/MathType/" style="font-size: 10px;">MathType</a> <a href="/tags/Tampermonkey/" style="font-size: 10px;">Tampermonkey</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/javaEE/" style="font-size: 10px;">javaEE</a> <a href="/tags/keil4/" style="font-size: 10px;">keil4</a> <a href="/tags/play/" style="font-size: 10px;">play</a> <a href="/tags/python/" style="font-size: 20px;">python</a> <a href="/tags/古诗/" style="font-size: 10px;">古诗</a> <a href="/tags/指针/" style="font-size: 10px;">指针</a> <a href="/tags/爬虫/" style="font-size: 10px;">爬虫</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ishero.net/">ishero</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Wcowboy</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Wcowboy</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">红烛 青灯</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wcowboy" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/1330283323@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-keil4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/02/keil4/" class="article-date">
+  	<time datetime="2019-03-02T11:00:56.000Z" itemprop="datePublished">2019-03-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      51单片机入门
+      
+          <span class="title-pop-out">[置顶]</a>
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C51/">C51</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/keil4/">keil4</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/单片机/">单片机</a>
+	</div>
+
+
+        
+          
+<div class="counter-tag counter">
+    <span id="/2019/03/02/keil4/" class="leancloud_visitors post-title-link"
+          style="font-size: 12px" data-flag-title="51单片机入门">
+         &nbsp;
+        view
+    </span>
+</div>
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="keil4安装及点亮第一个LED"><a href="#keil4安装及点亮第一个LED" class="headerlink" title="keil4安装及点亮第一个LED"></a>keil4安装及点亮第一个LED</h1><a id="more"></a> 
+<p>​    请支持正版，破解仅供学习使用</p>
+<p>​    花几个小时发现不是装的C51的(某管家的锅)，无奈重写。</p>
+<p>​    博客刚搭建好很多地方还没配置，是有蛮丑。将就凑合一下，咳咳</p>
+<p>​    github是图床，偶尔抽风加载不出来，加载慢。。。</p>
+<h3 id="1-keil4简介"><a href="#1-keil4简介" class="headerlink" title="1.keil4简介"></a>1.keil4简介</h3><p>Keil C51是美国Keil Software公司出品的51系列兼容单片机C语言软件开发系统，与汇编相比，C语言在功能上、结构性、可读性、可维护性上有明显的优势，因而易学易用。Keil提供了包括C编译器、宏汇编、链接器、库管理和一个功能强大的仿真调试器等在内的完整开发方案，通过一个集成开发环境（μVision）将这些部分组合在一起。运行Keil软件需要WIN98、NT、WIN2000、WINXP等操作系统。如果你使用C语言编程，那么Keil几乎就是你的不二之选，即使不使用C语言而仅用汇编语言编程，其方便易用的集成环境、强大的软件仿真调试工具也会令你事半功倍。        ——百度百科</p>
+<h3 id="2-keil4安装及破解"><a href="#2-keil4安装及破解" class="headerlink" title="2.keil4安装及破解"></a>2.keil4安装及破解</h3><p><a href="https://pan.baidu.com/s/1_yBrM-gL2DAYPowyak-hSw" target="_blank" rel="noopener">下载链接</a>密码：c6ez</p>
+<p>百度网盘下载可以使用<a href="https://www.speedpan.com/" target="_blank" rel="noopener">速盘</a>或者<a href="http://www.pandownload.com/" target="_blank" rel="noopener">PanDownload</a>，具体使用方法参见网站</p>
+<p>开始安装之前请确保杀毒软件等关闭，否则破解软件会被安排掉</p>
+<p>开始安装之前请确保杀毒软件等关闭，否则破解软件会被安排掉</p>
+<p>开始安装之前请确保杀毒软件等关闭，否则破解软件会被安排掉</p>
+<p>不关闭的话下载的文件会被干掉。</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><h6 id="1-双击运行C51V901-exe"><a href="#1-双击运行C51V901-exe" class="headerlink" title="1.双击运行C51V901.exe"></a>1.双击运行C51V901.exe</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p21.png" alt></p>
+<h6 id="2-选择I-agree，然后next"><a href="#2-选择I-agree，然后next" class="headerlink" title="2.选择I agree，然后next"></a>2.选择I agree，然后next</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p22.png" alt></p>
+<h6 id="3-选择路径，然后next"><a href="#3-选择路径，然后next" class="headerlink" title="3.选择路径，然后next"></a>3.选择路径，然后next</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p23.png" alt></p>
+<h6 id="4-信息随便填，7就完事"><a href="#4-信息随便填，7就完事" class="headerlink" title="4.信息随便填，7就完事"></a>4.信息随便填，7就完事</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p24.png" alt></p>
+<h6 id="5-等待安装完成"><a href="#5-等待安装完成" class="headerlink" title="5.等待安装完成"></a>5.等待安装完成</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p25.png" alt></p>
+<h6 id="6-finish"><a href="#6-finish" class="headerlink" title="6.finish"></a>6.finish</h6><h4 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h4><h6 id="7-在桌面找到Keil-uVision4，右键以管理员身份打开"><a href="#7-在桌面找到Keil-uVision4，右键以管理员身份打开" class="headerlink" title="7.在桌面找到Keil uVision4，右键以管理员身份打开"></a>7.在桌面找到Keil uVision4，右键以管理员身份打开</h6><h6 id="8-如图所示打开"><a href="#8-如图所示打开" class="headerlink" title="8.如图所示打开"></a>8.如图所示打开</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p28.png" alt></p>
+<h6 id="9-复制CID"><a href="#9-复制CID" class="headerlink" title="9.复制CID"></a>9.复制CID</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p29.png" alt></p>
+<h6 id="10-打开下载的KEIL-Lic注册机，将刚刚复制的CID粘贴进去，选择C51，点击generate，复制生成的文本"><a href="#10-打开下载的KEIL-Lic注册机，将刚刚复制的CID粘贴进去，选择C51，点击generate，复制生成的文本" class="headerlink" title="10.打开下载的KEIL_Lic注册机，将刚刚复制的CID粘贴进去，选择C51，点击generate，复制生成的文本"></a>10.打开下载的KEIL_Lic注册机，将刚刚复制的CID粘贴进去，选择C51，点击generate，复制生成的文本</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p210.png" alt></p>
+<h6 id="11-回到keil4，将复制的文本粘贴，点击ADD-LIC-出现successful就行了，上面会显示到期的日期，不满意时间可以重复7-10步骤。点击close关闭。"><a href="#11-回到keil4，将复制的文本粘贴，点击ADD-LIC-出现successful就行了，上面会显示到期的日期，不满意时间可以重复7-10步骤。点击close关闭。" class="headerlink" title="11.回到keil4，将复制的文本粘贴，点击ADD LIC,出现successful就行了，上面会显示到期的日期，不满意时间可以重复7-10步骤。点击close关闭。"></a>11.回到keil4，将复制的文本粘贴，点击ADD LIC,出现successful就行了，上面会显示到期的日期，不满意时间可以重复7-10步骤。点击close关闭。</h6><h6 id="12-破解完成"><a href="#12-破解完成" class="headerlink" title="12.破解完成"></a>12.破解完成</h6><h3 id="3-stc-isp下载以及stc系列头文件导入"><a href="#3-stc-isp下载以及stc系列头文件导入" class="headerlink" title="3.stc-isp下载以及stc系列头文件导入"></a>3.stc-isp下载以及stc系列头文件导入</h3><p>51单片机大多数情况下使用的是stc系列单片机，但是安装的keil4中是没有stc的头文件的，因此需要手动导入，stc-icp来将keil生成的.hex文件烧录到单片机</p>
+<h6 id="1-下载最新版stc-isp，往下滑就有了-不得不吐槽一下这个官网，咳咳，小广告既视感"><a href="#1-下载最新版stc-isp，往下滑就有了-不得不吐槽一下这个官网，咳咳，小广告既视感" class="headerlink" title="1.下载最新版stc-isp，往下滑就有了(不得不吐槽一下这个官网，咳咳，小广告既视感)"></a>1.下载最新版stc-isp，往下滑就有了(不得不吐槽一下这个官网，咳咳，小广告既视感)</h6><p><a href="http://www.stcisp.com/" target="_blank" rel="noopener">下载链接</a></p>
+<p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p31.png" alt></p>
+<h6 id="2-解压下载好的压缩包，打开stc-isp，依次点击keil仿真设置，添加型号和头文件到keil中，选择安装路径中的C51文件夹。点击确定，出现“STC-MCU型号添加成功”即可。"><a href="#2-解压下载好的压缩包，打开stc-isp，依次点击keil仿真设置，添加型号和头文件到keil中，选择安装路径中的C51文件夹。点击确定，出现“STC-MCU型号添加成功”即可。" class="headerlink" title="2.解压下载好的压缩包，打开stc-isp，依次点击keil仿真设置，添加型号和头文件到keil中，选择安装路径中的C51文件夹。点击确定，出现“STC MCU型号添加成功”即可。"></a>2.解压下载好的压缩包，打开stc-isp，依次点击keil仿真设置，添加型号和头文件到keil中，选择安装路径中的C51文件夹。点击确定，出现“STC MCU型号添加成功”即可。</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p32.png" alt></p>
+<h3 id="4-点亮第一个LED"><a href="#4-点亮第一个LED" class="headerlink" title="4.点亮第一个LED"></a>4.点亮第一个LED</h3><h5 id="1-程序编写"><a href="#1-程序编写" class="headerlink" title="1.程序编写"></a>1.程序编写</h5><h6 id="1-重新打开keil4，project——-gt-new-project"><a href="#1-重新打开keil4，project——-gt-new-project" class="headerlink" title="1.重新打开keil4，project——&gt;new project"></a>1.重新打开keil4，project——&gt;new project</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p41.png" alt></p>
+<h6 id="2-选择工程存放路径，输入工程名，然后保存"><a href="#2-选择工程存放路径，输入工程名，然后保存" class="headerlink" title="2.选择工程存放路径，输入工程名，然后保存"></a>2.选择工程存放路径，输入工程名，然后保存</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p42.png" alt></p>
+<h6 id="3-接下来选择STC的"><a href="#3-接下来选择STC的" class="headerlink" title="3.接下来选择STC的"></a>3.接下来选择STC的</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p43.png" alt></p>
+<h6 id="4-芯片选择STC89C52RC，C52RC比C51区别在与ROM等方面，编程而言几乎差不多。"><a href="#4-芯片选择STC89C52RC，C52RC比C51区别在与ROM等方面，编程而言几乎差不多。" class="headerlink" title="4.芯片选择STC89C52RC，C52RC比C51区别在与ROM等方面，编程而言几乎差不多。"></a>4.芯片选择STC89C52RC，C52RC比C51区别在与ROM等方面，编程而言几乎差不多。</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p44.png" alt></p>
+<h6 id="5-这里选择否"><a href="#5-这里选择否" class="headerlink" title="5.这里选择否"></a>5.这里选择否</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p45.png" alt></p>
+<h6 id="6-CTRL-N新建c，CTRL-S保存，注意文件名需要手动添加-c后缀（不能为-cpp）。保存"><a href="#6-CTRL-N新建c，CTRL-S保存，注意文件名需要手动添加-c后缀（不能为-cpp）。保存" class="headerlink" title="6.CTRL + N新建c，CTRL+ S保存，注意文件名需要手动添加.c后缀（不能为.cpp）。保存"></a>6.CTRL + N新建c，CTRL+ S保存，注意文件名需要手动添加.c后缀（不能为.cpp）。保存</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p46.png" alt></p>
+<h6 id="7-在左侧的project里面点开target双击source-group选择刚刚的c文件。add，然后close"><a href="#7-在左侧的project里面点开target双击source-group选择刚刚的c文件。add，然后close" class="headerlink" title="7.在左侧的project里面点开target双击source group选择刚刚的c文件。add，然后close"></a>7.在左侧的project里面点开target双击source group选择刚刚的c文件。add，然后close</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p47.png" alt></p>
+<h6 id="8-在led-c中输入如下代码-markdown没得C51。。。所以reg52那里没得高亮-，如图点击按钮或者按F7-Fn-F7-编译，编译成功如下图所示（没出现的话到11步应该能行）。"><a href="#8-在led-c中输入如下代码-markdown没得C51。。。所以reg52那里没得高亮-，如图点击按钮或者按F7-Fn-F7-编译，编译成功如下图所示（没出现的话到11步应该能行）。" class="headerlink" title="8.在led.c中输入如下代码(markdown没得C51。。。所以reg52那里没得高亮)，如图点击按钮或者按F7(Fn+F7)编译，编译成功如下图所示（没出现的话到11步应该能行）。"></a>8.在led.c中输入如下代码(markdown没得C51。。。所以reg52那里没得高亮)，如图点击按钮或者按F7(Fn+F7)编译，编译成功如下图所示（没出现的话到11步应该能行）。</h6><pre class=" language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;reg52.h></span></span>
+sbit led <span class="token operator">=</span> P1<span class="token operator">^</span><span class="token number">0</span>    <span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+         led <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//高电平有效的换成led = 1;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h6 id><a href="#" class="headerlink" title></a><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p48.png" alt></h6><h6 id="9-编译成功了，接下来利用stc-isp将我们的程序烧录到单片机。"><a href="#9-编译成功了，接下来利用stc-isp将我们的程序烧录到单片机。" class="headerlink" title="9.编译成功了，接下来利用stc-isp将我们的程序烧录到单片机。"></a>9.编译成功了，接下来利用stc-isp将我们的程序烧录到单片机。</h6><p>​    在这之前先设置点东西，点击target旁边的那个像锤子一样的按钮</p>
+<p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p49.png" alt></p>
+<h6 id="10-设置晶振频率"><a href="#10-设置晶振频率" class="headerlink" title="10.设置晶振频率"></a>10.设置晶振频率</h6><p>​    打开的界面中点击target，设置晶振频率为11.0592MHZ.晶振还有12MHZ等等其他频率</p>
+<p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p410.png" alt></p>
+<h6 id="11-产生-hex文件"><a href="#11-产生-hex文件" class="headerlink" title="11.产生.hex文件"></a>11.产生.hex文件</h6><p>​    在界面上点击output，勾选creat hex file.点击ok完成，按F7编译。</p>
+<p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p411.png" alt></p>
+<h5 id="2-烧写文件"><a href="#2-烧写文件" class="headerlink" title="2.烧写文件"></a>2.烧写文件</h5><h6 id="1-下载串口"><a href="#1-下载串口" class="headerlink" title="1.下载串口"></a>1.下载串口</h6><p>​    打开下载的文件夹的CH341SER.EXE，点击安装串口，失败的话，咳咳我懒得写了，百度有解决办法的。</p>
+<p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p421.png" alt></p>
+<h6 id="2-选择串口，芯片，波特率"><a href="#2-选择串口，芯片，波特率" class="headerlink" title="2.选择串口，芯片，波特率"></a>2.选择串口，芯片，波特率</h6><p>​    用usb线将单片机连接到笔记本。打开stc-isp，选择单片机型号，芯片上都有著名的，我的是C52RC(老板子了咳咳)，串口就是刚刚安装的，一般能自动识别，没自动识别的话，百度会告诉你怎么看自己的串口的。然后打开程序文件，路径是工程路径，添加.hex文件。</p>
+<p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p422.png" alt></p>
+<h6 id="3-烧录"><a href="#3-烧录" class="headerlink" title="3.烧录"></a>3.烧录</h6><p>​    将单片机电源开关断开使之处于掉电（power led不亮）,然后点击下载/编程，将单片机上电(需要冷启动，详细的请百度这里不再介绍)。</p>
+<h6 id="4-效果"><a href="#4-效果" class="headerlink" title="4.效果"></a>4.效果</h6><p><img src="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/Microcontrollers/p424.png" alt></p>
+<p>点亮led灯在单片机学习中就好比学习编程语言的输出hello world一样</p>
+<h2 id="如果没有板子的同学比比较多的话，计划有时间在用protues仿真51点亮led。"><a href="#如果没有板子的同学比比较多的话，计划有时间在用protues仿真51点亮led。" class="headerlink" title="如果没有板子的同学比比较多的话，计划有时间在用protues仿真51点亮led。"></a>如果没有板子的同学比比较多的话，计划有时间在用protues仿真51点亮led。</h2><p>​    </p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/14/python-pa-chong-1-pa-qu-bei-jing-duan-zu-fang-xin-xi/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          python爬虫1--爬取北京短租房信息
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/13/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="keil4" data-title="51单片机入门" data-url="blog.wcowboy.com/2019/03/02/keil4/"  data-images="https://wcowboy-1258563652.cos.ap-chengdu.myqcloud.com/Blog/HomeAvatar1.jpg" data-content="51单片机入门">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2019 Wcowboy
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+</body>
+</html>
