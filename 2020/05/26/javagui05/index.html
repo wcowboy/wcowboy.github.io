@@ -17,16 +17,16 @@
 <meta property="og:site_name" content="独者殿堂">
 <meta property="og:description" content="JavaGui中简单的监听窗口监听在前面的学习中，我们的窗口点击右上角的X是不能关闭的，这怎么能行，今天我们就来赋予关闭的功能，来看下面这个代码 public class TestFrame {     public static void main(String[] args) {         Frame frame = new Frame(&quot;窗口关闭&quot;);          //需要设置可">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="e:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526083007606.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/4t76fHpZEAreWJy.png">
 <meta property="og:image" content="blog.wcowboy.com/2020/05/26/javagui05/upload%5Cimage-20200526083243497.png">
-<meta property="og:image" content="e:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526084159933.png">
-<meta property="og:image" content="e:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526084540231.png">
-<meta property="og:image" content="e:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526084755942.png">
-<meta property="og:updated_time" content="2020-05-26T00:53:43.558Z">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/bYyZBjJzh9nvWME.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/B4lGq9xiJIQCRfd.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/26/ArdMnjuZQS5UzlP.png">
+<meta property="og:updated_time" content="2020-05-26T01:03:55.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaGui05 Listener-监听">
 <meta name="twitter:description" content="JavaGui中简单的监听窗口监听在前面的学习中，我们的窗口点击右上角的X是不能关闭的，这怎么能行，今天我们就来赋予关闭的功能，来看下面这个代码 public class TestFrame {     public static void main(String[] args) {         Frame frame = new Frame(&quot;窗口关闭&quot;);          //需要设置可">
-<meta name="twitter:image" content="e:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526083007606.png">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/26/4t76fHpZEAreWJy.png">
   
     <link rel="alternative" href="/atom.xml" title="独者殿堂" type="application/atom+xml">
   
@@ -260,7 +260,7 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <p>会发现，这个代码运行起来是不能直接关闭的，因此，我们得想办法给他关闭，这里就得提到监听了，监听器可以监听你设置的组件的行为，比如点击关闭按钮，触发监听器</p>
-<p><img src="E:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526083007606.png" alt="image-20200526083007606"></p>
+<p><img src="https://i.loli.net/2020/05/26/4t76fHpZEAreWJy.png" alt="image-20200526083007606"></p>
 <p>给<code>fram</code>添加一个<code>WindowListener</code>,因为<code>fram</code>是一个窗口，所以用<code>WindowListener</code>,<code>new</code>一个<code>WindowAdapter</code>,这里传入的应该是要<code>WindowListener</code>，为什么现在<code>new WindowAdapter</code>呢？因为<code>WindowListener</code>需要重写里面的所有方法，像下面一样，因此我，我们传一个适配器。需要哪个重写哪个。</p>
 <p><img src="upload%5Cimage-20200526083243497.png" alt="image-20200526083243497"></p>
 <p>最后重写<code>windowClosing</code>方法就行了，像这样</p>
@@ -291,7 +291,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="E:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526084159933.png" alt="image-20200526084159933"></p>
+<p><img src="https://i.loli.net/2020/05/26/bYyZBjJzh9nvWME.png" alt="image-20200526084159933"></p>
 <p>这么看来，其实和窗口监听事件逻辑差不多</p>
 <h1 id="更优雅的代码"><a href="#更优雅的代码" class="headerlink" title="更优雅的代码"></a>更优雅的代码</h1><p>我们可以将关闭，封装成一个方法，监听器自己写一个，就像这样</p>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestActionEvent</span> <span class="token punctuation">{</span>
@@ -332,7 +332,7 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><img src="E:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526084540231.png" alt="image-20200526084540231"></p>
+<p><img src="https://i.loli.net/2020/05/26/B4lGq9xiJIQCRfd.png" alt="image-20200526084540231"></p>
 <h1 id="两个组件公用一个监听器"><a href="#两个组件公用一个监听器" class="headerlink" title="两个组件公用一个监听器"></a>两个组件公用一个监听器</h1><p>上面的代码将监听器用自己的类实现了。那一个监听器可以监听多个组件嘛？答案是可以的</p>
 <pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//两个按钮公用一个方法</span>
 <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestActionTwo</span> <span class="token punctuation">{</span>
@@ -365,7 +365,7 @@
 
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
-<p><img src="E:%5CHEXO%5Csource%5C_posts%5Cupload%5Cimage-20200526084755942.png" alt="image-20200526084755942"></p>
+<p><img src="https://i.loli.net/2020/05/26/ArdMnjuZQS5UzlP.png" alt="image-20200526084755942"></p>
 
       
     </div>
